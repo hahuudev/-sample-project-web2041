@@ -1,5 +1,5 @@
 <?php
-class HomeModel
+class Product extends Model
 {
     public function getFullProducts()
     {
