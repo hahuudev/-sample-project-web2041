@@ -19,7 +19,7 @@ class App
         } else {
             $url = '/';
         }
-
+        
         return $url;
     }
 
@@ -29,10 +29,7 @@ class App
 
         $urlArr = array_filter(explode('/', $url));
         $urlArr = array_values($urlArr);
-        // echo '<pre>';
-        // print_r($urlArr);
-        // echo '</pre>';
-
+       
         // Xử lý controller
         if (!empty($urlArr[0])) {
 

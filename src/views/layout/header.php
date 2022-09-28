@@ -21,18 +21,18 @@
 
 
         <div class=" d-flex" style="width: 300px">
-            <a class="d-block nav-link " href="auth"><button type="button" class="btn btn-success">Đăng nhập</button></a>
+            <?php if (!isset($_SESSION['user']))  echo '<a class="d-block nav-link " href="/web204/auth"><button type="button" class="btn btn-success">Đăng nhập</button></a>' ?>
 
+            <?php if (isset($_SESSION['user']))  echo '
             <div class="dropdown ms-4">
                 <img class=" dropdown-toggle rounded-circle" src="https://cf.shopee.vn/file/af21a72af277c6a11e1a35995e07b505" type="button" data-bs-toggle="dropdown" aria-expanded="false" width="40px" height="40px">
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./admin/products">Quản trị sản phẩm</a></li>
-                    <li><a class="dropdown-item" href="./admin/categories">Quản trị danh mục</a></li>
-                    <li><a class="dropdown-item" href="./admin/users">Quản trị user</a></li>
-                    <li><a class="dropdown-item" href="./auth/logOut.php">Đăng xuất</a></li>
+                    <li><a class="dropdown-item" href="./admin">admin</a></li>
+                    
+                    <li><a class="dropdown-item" href="/web204/auth/logout">Đăng xuất</a></li>
                 </ul>
 
-            </div>
+            </div>' ?>
         </div>
     </div>
 

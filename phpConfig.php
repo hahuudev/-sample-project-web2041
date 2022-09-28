@@ -14,13 +14,7 @@ $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 $folder = str_replace(strtolower($documentRoot), '', strtolower($dirRoot));
 
 define('DOMAIN', $web_root . $folder);
-$connect = new PDO(
-    'mysql:host=127.0.0.1; dbname=assignment_2',
-    'root',
-    ''
-);
-
-// require_once 'core/ConnectDb.php';
 require_once 'src/App.php';
 require_once 'core/Controller.php';
 require_once 'core/Model.php';
+require_once 'core/Request.php';
