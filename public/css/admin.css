@@ -1,0 +1,29 @@
+.app {
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgba(134, 28, 205, 1) 24%, rgba(118, 50, 208, 1) 100%);
+}
+
+.admin {
+    max-width: 1256px;
+    margin: 0 auto;
+}
+.sidebar {
+    height: 90vh;
+    min-width: 250px;
+    background-color: var(--bs-list-group-bg);
+    border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+}
+
+.content {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.addProduct {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+label {
+    color: #fff;
+}

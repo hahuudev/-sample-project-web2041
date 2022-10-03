@@ -9,9 +9,9 @@ class Product extends Controller
         $data['props']['products'] = '';
         $data['content'] = 'page/detail';
         $this->render('layout/defaultLayout', $data);
-        
     }
     public function detail()
     {
+        echo 'hi';
     }
 }

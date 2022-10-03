@@ -6,16 +6,18 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function isPost(){
-        if ($this->getMethod()=='post'){
+    public function isPost()
+    {
+        if ($this->getMethod() == 'post') {
             return true;
         }
 
         return false;
     }
 
-    public function isGet(){
-        if ($this->getMethod()=='get'){
+    public function isGet()
+    {
+        if ($this->getMethod() == 'get') {
             return true;
         }
 
@@ -51,6 +53,9 @@ class Request
                         $dataFields[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
                     }
                 }
+            }
+            if (!empty($_FILES)) {
+                $dataFields['files'] = $_FILES;
             }
         }
 
