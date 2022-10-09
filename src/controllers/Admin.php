@@ -80,7 +80,7 @@ class Admin extends Controller
             $data['image']  = $save_file;
         }
 
-        $this->homeModel = $this->model('Product');
+        $this->homeModel = $this->model('ProductModel');
         $this->homeModel->updateProduct($data);
         header("Location: $this->domain/admin/products");
     }

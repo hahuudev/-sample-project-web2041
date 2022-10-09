@@ -31,6 +31,7 @@ class Auth extends Controller
             header("Location:  $this->route?error=Sai username hoặc password");
         } else {
 
+            $userLogin['id'] = $userDb['id'];
             $userLogin['username'] = $userDb['username'];
             $userLogin['email'] = $userDb['email'];
             $userLogin['isAdmin'] = $userDb['is_Admin'];

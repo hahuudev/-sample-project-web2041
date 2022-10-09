@@ -9,7 +9,7 @@
             <form class="form d-flex " style="width: 500px;height: 40px" action="<?= DOMAIN ?>/product/search" method="GET">
                 <input type="text" name="q" class="form-control" placeholder="Bạn muốn tìm sản phẩm gì?" required>
 
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="ms-2 btn btn-primary">Search</button>
             </form>
 
             <nav class="nav ">

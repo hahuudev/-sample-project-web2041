@@ -317,3 +317,17 @@
 .footer__end span {
     margin: auto;
 }
+
+/* DETAIL */
+.comments {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.comment-item {
+
+}
+
+.comment-item > hr.hr:last-child{
+    /* display: none; */
+}

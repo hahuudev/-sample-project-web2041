@@ -18,21 +18,44 @@
             <h4 class="home-product-item__name">
                 <?= $products['name'] ?>
             </h4>
-            <div class="home-product-item__price">
+            <div class="home-product-item__price justify-content-start">
                 <span class="a">1.200.000 đ</span>
-                <span class="b"><?= $products['price'] ?> đ</span>
+                <span class="b ms-5"><?= $products['price'] ?> đ</span>
             </div>
-            <div class="">
-                <button class="btn btn-primary">Mua ngay</button>
+            <div class="mt-4">
+                <button class="btn btn-danger">Thêm vào giỏ hảng</button>
+                <button class="ms-5 btn btn-primary">Mua ngay</button>
             </div>
 
-            <div class="description mt-3">
-                <p class="">h<?= $products['description'] ?></p>
+            <div class="description mt-4">
+                <p class=""><?= $products['description'] ?></p>
             </div>
         </div>
     </div>
 
-    <div class="">
-        <input type="text">
+    <div class="mt-4">
+        <form class="" style=" max-width: 500px" action="<?= DOMAIN ?>/product/handleComment" method="post" >
+            <label for="exampleInputEmail1" class="form-label text-dark fs-3">Mời nhập nhận xét</label>
+            <div class="d-flex mt-2">
+                <input type="hidden" name="userId" value="<?= $_SESSION['user']['id'] ?>">
+                <input type="hidden" name="productId" value="<?= $products['id'] ?>">
+                <input type="text" name="content" class="form-control me-3" id="exampleInputEmail1" placeholder="Mời nhập đánh giá của bạn" required>
+                <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+            </div>
+        </form>
+
+        <div class="comments ps-3 mt-3">
+            <?php if (empty($comments)) echo 'Chưa có đánh giá cho sản phẩm này. Vui lòng đánh giá để chúng tôi biết ý kiến của bạn'  ?>
+            <?php foreach ($comments as $key => $comment) : ?>
+                <div class="comment-item">
+                    <div class="d-flex">
+                        <h4 class="text-info"><?= $comment['username'] ?></h4>
+                        <span class="ms-4"><?= $comment['created_at'] ?></span>
+                    </div>
+                    <p class="content ps-2 fs-5 text-success"><?= $comment['content'] ?></p>
+                    <hr class="hr">
+                </div>
+            <?php endforeach ?>
+        </div>
     </div>
 </div>

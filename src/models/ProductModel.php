@@ -4,7 +4,7 @@ class ProductModel extends Model
     public function getFullProducts()
     {
         $sql = "SELECT prd.id, prd.name, cat.name as category, price, sl, prd.description, likeCount, image
-         FROM products prd JOIN categories cat WHERE prd.typeId = cat.id";
+         FROM products prd JOIN categories cat ON prd.typeId = cat.id";
         return $this->query($sql, 'FETCHAll');
     }
 
@@ -14,8 +14,30 @@ class ProductModel extends Model
         return $this->query($sql, 'FETCH');
     }
 
-    public function searchProduct($search) {
-        $sql = "SELECT * FROM products WHERE name LIKE '%$search%' ";
+    public function searchProduct($search, $category, $start, $end)
+    {
+       
+        $sql =  "SELECT prd.id, prd.name, cat.name as category, price, sl, prd.description, likeCount, image
+        FROM products prd JOIN categories cat ON prd.typeId = cat.id WHERE prd.name LIKE '%$search%'";
+
+        if ($category != '') {
+            
+            $sql = "SELECT prd.id, prd.name, cat.name as category, price, sl, prd.description, likeCount, image
+             FROM products prd JOIN categories cat ON prd.typeId = cat.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
+        }
+        if ($start != '' & $end != '') {
+            
+            $sql = "SELECT prd.id, prd.name, cat.name as category, price, sl, prd.description, likeCount, image
+            FROM products prd JOIN categories cat ON prd.typeId = cat.id WHERE prd.name LIKE '%$search%' AND price <= $end AND  price>= $start";
+        }
+
+        if ($category != '' & $start != ''  & $end != '' ) {
+            var_dump($category);
+            $sql = "SELECT prd.id, prd.name, cat.name as category, price, sl, prd.description, likeCount, image
+            FROM products prd JOIN categories cat ON prd.typeId = cat.id WHERE prd.name LIKE '%$search%' 
+            AND cat.name = '$category' AND price <= $end AND  price>= $start";
+        }
+
         return $this->query($sql, 'FETCHAll');
     }
 
