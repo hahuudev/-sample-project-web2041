@@ -7,7 +7,7 @@
 
         <div class="d-flex flex-column align-items-center justify-content-center" style="flex: 1">
             <form class="form d-flex " style="width: 500px;height: 40px" action="<?= DOMAIN ?>/product/search" method="GET">
-                <input type="text" name="q" class="form-control" placeholder="Bạn muốn tìm sản phẩm gì?">
+                <input type="text" name="q" class="form-control" placeholder="Bạn muốn tìm sản phẩm gì?" required>
 
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
