@@ -82,7 +82,7 @@
                                         <span class="">200 đã bán</span>
                                     </div>
                                     <div class="product__action-note">
-                                        <span class="">Who</span>
+                                        <span class=""><?= $value['category'] ?></span>
                                         <span class="">Nhật Bản</span>
                                     </div>
                                 </div>
