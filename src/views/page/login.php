@@ -1,10 +1,10 @@
 
 
-<form class="mt-4" action="auth/submit" method="post" style="max-width: 700px; margin: 0 auto;">
+<form class="" action="auth/submit" method="post" style="max-width: 700px; margin: 0 auto;">
     <h4 class="" style="text-align: center;">Login vào XShop</h4>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" name='username' class="form-control" id="exampleInputEmail1" required>
+        <input type="email" name='email' class="form-control" id="exampleInputEmail1" required>
         <div class="text-danger" class="form-text"></div>
     </div>
 
@@ -22,7 +22,7 @@
         <button type="submit" class="btn btn-primary">Login</button>
         <div class="ms-4">
             Bạn chưa có tài khoản?
-            <a href="resgister_form.php" class="">Resgiter</a>
+            <a href="<?= DOMAIN ?>/auth/resgister" class="">Resgiter</a>
         </div>
     </div>
 </form>

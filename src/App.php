@@ -1,7 +1,8 @@
 <?php
 class App
 {
-    private $__controller, $__action, $__params;
+    private $__controller, $__action;
+    public  $__params;
 
     function __construct()
     {
@@ -19,7 +20,7 @@ class App
         } else {
             $url = '/';
         }
-        
+
         return $url;
     }
 
@@ -29,7 +30,7 @@ class App
 
         $urlArr = array_filter(explode('/', $url));
         $urlArr = array_values($urlArr);
-       
+
         // Xử lý controller
         if (!empty($urlArr[0])) {
 
@@ -61,7 +62,7 @@ class App
 
         //Xử lý params
         $this->__params = array_values($urlArr);
-
+        
         //Kiểm tra method tồn tại
         if (method_exists($this->__controller, $this->__action)) {
             call_user_func_array([$this->__controller, $this->__action], $this->__params);

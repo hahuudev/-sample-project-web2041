@@ -26,7 +26,7 @@ class Model
         if ($isFetchAll == "FETCH") {
             return $stm->fetch();
         }
-        if ($isFetchAll == "FETCH") {
+        if ($isFetchAll == "FETCHAll") {
             return $stm->fetchAll();
         }
         return null;
