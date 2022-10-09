@@ -159,20 +159,34 @@ class Admin extends Controller
         $this->render('layout/adminlayout', $data);
     }
 
-    public function delete_user() {
+    public function delete_user()
+    {
         $this->UserModel = $this->model('UserModel');
         $this->homeModel->deleteUser($_GET['id']);
         header("Location: $this->domain/admin/categories");
     }
 
     // COMMENTS
-    public function comments() {
-        $this->CommentMode = $this->model('CommentModel');
-        $comments = $this->CommentMode->getFullComments();
+    public function comments($id = '')
+    {
+        $this->CommentModel = $this->model('CommentModel');
 
-        $data['props']['comments'] = $comments;
-        $data['content'] = 'page/admin/comments';
-        $this->render('layout/adminlayout', $data);
+        if ($id == '') {
+            $comments = $this->CommentModel->getFullComments($id);
+            $data['props']['comments'] = $comments;
+            $data['content'] = 'page/admin/comments';
+            $this->render('layout/adminlayout', $data);
+        } else {
+            $comments = $this->CommentModel->getFullComments($id);
+            $data['props']['comments'] = $comments;
+            $data['content'] = 'page/admin/commentDetail';
+            $this->render('layout/adminlayout', $data);
+        }
     }
 
+    public function delete_cmt() {
+        $this->CommentModel = $this->model('CommentModel');
+        $this->CommentModel->deleteCmt($_GET['id']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }

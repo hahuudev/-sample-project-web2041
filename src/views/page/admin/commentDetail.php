@@ -1,10 +1,14 @@
 <main class="main mt-2">
+    <a href="<?= DOMAIN ?>/admin/comments" class="bg-warning">
+        <button class="btn btn-primary">Trở lại</button>
+    </a>
+
+    <h3 class="">Tên sản phẩm: <?= $comments[0]['name'] ?> </h3>
     <table class="mt-2 table table-success table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Tổng số bình luận</th>
+                <th scope="col">Username</th>
+                <th scope="col">Nội dung</th>
                 <th scope="col">Ngày mới nhất</th>
                 <th scope="col">Ngày cũ nhất</th>
                 <th scope="col">Optionns</th>
@@ -13,16 +17,13 @@
         <tbody>
             <?php foreach ($comments as $key => $value) : ?>
                 <tr>
-                    <th><?= $value['id'] ?></th>
-                    <th><?= $value['name'] ?></th>
-                    <td><?= $value['sl'] ?></td>
+                    <th><?= $value['username'] ?></th>
+                    <td><?= $value['content'] ?></td>
                     <td><?= $value['created_at'] ?></td>
                     <td><?= $value['updated_at'] ?></td>
                     <td>
-
-
-                        <a href="<?= DOMAIN ?>/admin/comments/<?=$value['id'] ?>" class="ml-3">
-                            <button class="btn btn-primary">Chi tiết</button>
+                        <a href="<?= DOMAIN ?>/admin/delete_cmt?id=<?= $value['id'] ?>" class="ml-3">
+                            <button class="btn btn-primary">Xóa bình luận</button>
                         </a>
                     </td>
                 </tr>
