@@ -22,8 +22,10 @@ class Product extends Controller
 
     public function search()
     {
-        var_dump($_GET['q']);
-        $data['props']['products'] = '';
+        $this->ProductModel = $this->model('ProductModel');
+        $products = $this->ProductModel->searchProduct($_GET['q']);
+
+        $data['props']['products'] = $products ;
 
         $data['content'] = 'page/search';
         $this->render('layout/defaultLayout', $data);

@@ -14,7 +14,9 @@ class ProductModel extends Model
         return $this->query($sql, 'FETCH');
     }
 
-    public function searchProduct() {
+    public function searchProduct($search) {
+        $sql = "SELECT * FROM products WHERE name LIKE '%$search%' ";
+        return $this->query($sql, 'FETCHAll');
     }
 
     public function getFullCategories()
