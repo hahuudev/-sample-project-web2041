@@ -45,7 +45,7 @@
                 <div class="row no-gutter">
                     <?php foreach ($products as $key => $value) : ?>
                         <div class="col l-2-4 m-4 c-12">
-                            <a href="<?= DOMAIN ?>/product/detail/tainghe" class="home-product-item">
+                            <a href="<?= DOMAIN ?>/product/detail/<?= $value['id'] ?>/<?= str_replace(' ', '-', $value['name']) ?>" class="home-product-item">
                                 <div class="home-product-item__img">
                                     <img src="<?= $value['image'] ?>" alt="" class="product__item-img">
 
@@ -98,13 +98,13 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <a class="page-link" href="<?= DOMAIN ?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="<?= DOMAIN ?>?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="<?= DOMAIN ?>?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="<?= DOMAIN ?>?page=3">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

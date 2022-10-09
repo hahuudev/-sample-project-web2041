@@ -1,6 +1,7 @@
 <?php
 class Controller
 {
+
     public function model($model)
     {
         if (file_exists(_DIR_ROOT . '/src/models/' . $model . '.php')) {

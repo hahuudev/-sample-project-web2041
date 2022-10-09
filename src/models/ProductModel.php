@@ -1,5 +1,5 @@
 <?php
-class Product extends Model
+class ProductModel extends Model
 {
     public function getFullProducts()
     {
@@ -12,6 +12,9 @@ class Product extends Model
     {
         $sql = "SELECT * FROM products WHERE id = $id";
         return $this->query($sql, 'FETCH');
+    }
+
+    public function searchProduct() {
     }
 
     public function getFullCategories()

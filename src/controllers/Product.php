@@ -10,8 +10,22 @@ class Product extends Controller
         $data['content'] = 'page/detail';
         $this->render('layout/defaultLayout', $data);
     }
-    public function detail()
+    public function detail($id)
     {
-        echo 'hi';
+        $this->ProductModel = $this->model('ProductModel');
+        $products = $this->ProductModel->getProductById($id);
+        $data['props']['products'] = $products;
+
+        $data['content'] = 'page/detail';
+        $this->render('layout/defaultLayout', $data);
+    }
+
+    public function search()
+    {
+        var_dump($_GET['q']);
+        $data['props']['products'] = '';
+
+        $data['content'] = 'page/search';
+        $this->render('layout/defaultLayout', $data);
     }
 }

@@ -4,8 +4,9 @@ class Home extends Controller
 
     public function index()
     {
+
         $data = null;
-        $this->homeModel = $this->model('Product');
+        $this->homeModel = $this->model('ProductModel');
         $products = $this->homeModel->getFullProducts();
         $categories = $this->homeModel->getFullCategories();
         $data['props']['products'] = $products;
@@ -14,9 +15,5 @@ class Home extends Controller
         $this->render('layout/defaultLayout', $data);
     }
 
-    public function detail()
-    {
-        $request = new Request();
-        var_dump($request->getMethod());
-    }
+    
 }
