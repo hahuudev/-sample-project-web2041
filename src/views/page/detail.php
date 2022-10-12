@@ -34,10 +34,10 @@
     </div>
 
     <div class="mt-4">
-        <form class="" style=" max-width: 500px" action="<?= DOMAIN ?>/product/handleComment" method="post" >
+        <form class="" style=" max-width: 500px" action="<?= DOMAIN ?>/product/handleComment" method="post">
             <label for="exampleInputEmail1" class="form-label text-dark fs-3">Mời nhập nhận xét</label>
             <div class="d-flex mt-2">
-                <input type="hidden" name="userId" value="<?= $_SESSION['user']['id'] ?>">
+                <input type="hidden" name="userId" value="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '' ?>">
                 <input type="hidden" name="productId" value="<?= $products['id'] ?>">
                 <input type="text" name="content" class="form-control me-3" id="exampleInputEmail1" placeholder="Mời nhập đánh giá của bạn" required>
                 <button type="submit" class="btn btn-primary">Gửi đánh giá</button>

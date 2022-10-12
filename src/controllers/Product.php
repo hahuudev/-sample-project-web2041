@@ -52,6 +52,11 @@ class Product extends Controller
     {
         $request = new Request();
         $data = $request->getFields();
+        
+        if($data['userId'] == '') {
+            $hrefLogin = DOMAIN;
+            header("Location: $hrefLogin/auth");
+        };
 
         $this->CommentModel = $this->model('CommentModel');
         $this->CommentModel->addComment($data['userId'], $data['productId'], $data['content']);
